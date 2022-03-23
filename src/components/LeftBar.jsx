@@ -85,9 +85,6 @@ const LeftBar = () => {
                </ListItemButton>
             </List>
 
-            
-
-
         </div>
 
     </div>
