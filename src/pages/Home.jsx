@@ -1,19 +1,19 @@
+import Grid from '@mui/material/Grid'
+import { makeStyles } from '@mui/styles'
 import React from 'react'
-
-
+import Feed from '../components/Feed'
 import LeftBar from '../components/LeftBar'
 import RightBar from '../components/RightBar'
-import Feed from '../components/Feed'
-import Grid from '@mui/material/Grid'
 
 
 
-import { makeStyles } from '@mui/styles'
+
+
 
 const useStyles = makeStyles((theme)=>(
     {
         container : {
-            height : '100vh'
+            // height : '100vh'
         }
     }
 ));

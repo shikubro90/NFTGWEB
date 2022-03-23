@@ -1,11 +1,10 @@
+import { ThemeProvider } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import React from "react";
 import MainLayout from "./components/MainLayout";
+import { theme } from './components/Theme';
 import Home from "./pages/Home";
-import Dashboard from "./components/Dashboard";
 
-import { makeStyles } from '@mui/styles';
-import { ThemeProvider } from '@mui/material/styles';
-import {theme} from './components/Theme'
 
 const useStyles = makeStyles((theme)=>(
   {
@@ -21,8 +20,8 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
       <MainLayout>
-        {/* <Home/> */}
-        <Dashboard/>
+        <Home/>
+        {/* <Dashboard/> */}
       </MainLayout>
       </ThemeProvider>
     </div>
