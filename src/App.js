@@ -9,7 +9,7 @@ import {theme} from './components/Theme'
 
 const useStyles = makeStyles((theme)=>(
   {
-    
+
   }
 ))
 
@@ -21,8 +21,8 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
       <MainLayout>
-        {/* <Home/> */}
-        <Dashboard/>
+        <Home/>
+        {/* <Dashboard/> */}
       </MainLayout>
       </ThemeProvider>
     </div>

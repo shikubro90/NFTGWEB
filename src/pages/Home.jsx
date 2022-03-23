@@ -12,9 +12,7 @@ import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles((theme)=>(
     {
-        container : {
-            height : '100vh'
-        }
+       
     }
 ));
 
@@ -24,18 +22,18 @@ const Home = () => {
     const classes = useStyles()
     
   return (
-    <Grid container spacing={24} className={classes.container}>
+    <Grid container className={classes.container}>
 
-        <Grid item sm={3} xs={2}>
+        <Grid item xs={12} sm={2} md={2} lg={2}>
             <LeftBar />
         </Grid>
 
-        <Grid item sm={5} xs={10}>
+        <Grid item xs={12} sm={7} md={7} lg={7}>
             {/* <NavBar/> */}
             <Feed />
         </Grid>
 
-        <Grid item sm={4}>
+        <Grid item xs={12} sm={3} md={3} lg={3}>
             <RightBar />
         </Grid>
     </Grid>
