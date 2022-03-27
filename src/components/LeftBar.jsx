@@ -2,15 +2,12 @@ import * as React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import { makeStyles } from '@mui/styles';
 import brandLogo from '../img/Group-1.png'
-import Box  from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
-import { Button, Card, CardActions, CardContent, CardMedia, ListItem, Typography } from '@mui/material';
-import { fontSize } from '@mui/system';
+import { Box, Card, CardContent, CardMedia, ListItem, Typography } from '@mui/material';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import { FixedSizeList } from 'react-window';
 
 
 
@@ -22,7 +19,8 @@ const useStyles = makeStyles((theme)=>(
         },
         content : {
             backgroundColor : "#8C4AF2",
-            borderRadius : "30px 30px 0 0"
+            borderRadius : "30px 30px 30px 30px",
+            paddingBottom : '40px'
         },
         card : {
             background : "#6C14B9 !important",
@@ -57,6 +55,20 @@ const LeftBar = () => {
 
     const classes = useStyles()
 
+
+    function renderRow(props) {
+        const { index, style } = props;
+      
+        return (
+          <ListItem style={style} key={index} component="div" disablePadding>
+            <ListItemButton>
+              <ListItemText primary={`Item ${index + 1}`} />
+            </ListItemButton>
+          </ListItem>
+        );
+      }
+
+
   return (
     <div className={classes.leftBar}>
     
@@ -84,7 +96,22 @@ const LeftBar = () => {
                     </ListItemText>
                </ListItemButton>
             </List>
+            
 
+            <Box
+                sx={{ width: '100%', height: 400, maxWidth: 360,  }}
+                >
+                <FixedSizeList
+                    height={400}
+                    itemSize={46}
+                    itemCount={200}
+                    overscanCount={5}
+                >
+                    {renderRow}
+
+                </FixedSizeList>
+            </Box>
+            
         </div>
 
     </div>
