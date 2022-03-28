@@ -8,6 +8,7 @@ import brandLogo from '../img/Group-1.png'
 import { Box, Card, CardContent, CardMedia, ListItem, Typography } from '@mui/material';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import { FixedSizeList } from 'react-window';
+import Rarity from './Rarity';
 
 
 
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme)=>(
             padding : "20px 20px",
         },
         content : {
-            backgroundColor : "#8C4AF2",
+            backgroundColor : "#6E56F6",
             borderRadius : "30px 30px 30px 30px",
             paddingBottom : '40px'
         },
@@ -47,7 +48,9 @@ const useStyles = makeStyles((theme)=>(
             padding : "10px 20px",
             fontSize : '14px !important',
 
-        }
+        },
+        
+        
     }
 ))
 
@@ -100,11 +103,12 @@ const LeftBar = () => {
 
             <Box
                 sx={{ width: '100%', height: 400, maxWidth: 360,  }}
-                >
+                 >
                 <FixedSizeList
+                    className={classes.style1}
                     height={400}
                     itemSize={46}
-                    itemCount={200}
+                    itemCount={10}
                     overscanCount={5}
                 >
                     {renderRow}
@@ -113,6 +117,8 @@ const LeftBar = () => {
             </Box>
             
         </div>
+
+        <Rarity/>
 
     </div>
   )
