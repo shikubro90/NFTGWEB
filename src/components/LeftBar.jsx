@@ -5,10 +5,16 @@ import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 import { makeStyles } from '@mui/styles';
 import brandLogo from '../img/Group-1.png'
-import { Box, Card, CardContent, CardMedia, ListItem, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardMedia, IconButton, ListItem, ListItemAvatar, Typography } from '@mui/material';
 import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import { FixedSizeList } from 'react-window';
 import Rarity from './Rarity';
+import styled from '@emotion/styled';
+import FolderIcon from '@mui/icons-material/Folder';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
 
 
 
@@ -58,18 +64,19 @@ const LeftBar = () => {
 
     const classes = useStyles()
 
-
-    function renderRow(props) {
-        const { index, style } = props;
-      
-        return (
-          <ListItem style={style} key={index} component="div" disablePadding>
-            <ListItemButton>
-              <ListItemText primary={`Item ${index + 1}`} />
-            </ListItemButton>
-          </ListItem>
+    //generate row function comme
+    function generate(element) {
+        return [0, 1, 2].map((value) =>
+          React.cloneElement(element, {
+            key: value,
+          }),
         );
-      }
+    }
+
+    const Demo = styled('div')(({ theme }) => ({
+        backgroundColor: theme.palette.background.secondary,
+      }));
+
 
 
   return (
@@ -100,21 +107,30 @@ const LeftBar = () => {
                </ListItemButton>
             </List>
             
-
-            <Box
-                sx={{ width: '100%', height: 400, maxWidth: 360,  }}
-                 >
-                <FixedSizeList
-                    className={classes.style1}
-                    height={400}
-                    itemSize={46}
-                    itemCount={10}
-                    overscanCount={5}
+            <Demo>
+            <List >
+              {generate(
+                <ListItem
+                  secondaryAction={
+                    <IconButton edge="end" aria-label="delete">
+                      <DeleteIcon />
+                    </IconButton>
+                  }
                 >
-                    {renderRow}
+                  <ListItemAvatar>
+                    <Avatar>
+                      <FolderIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary="Elements Name"
+                    
+                  />
+                </ListItem>,
+              )}
+            </List>
+          </Demo>
 
-                </FixedSizeList>
-            </Box>
             
         </div>
 
