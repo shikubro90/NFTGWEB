@@ -77,6 +77,10 @@ const LeftBar = () => {
         backgroundColor: theme.palette.background.secondary,
       }));
 
+    const dirHandler = (e) => {
+        console.log(e.target.files)
+    }
+
 
 
   return (
@@ -109,6 +113,7 @@ const LeftBar = () => {
             
             <Demo>
             <List >
+
               {generate(
                 <ListItem
                   secondaryAction={
@@ -128,10 +133,11 @@ const LeftBar = () => {
                   />
                 </ListItem>,
               )}
+
             </List>
           </Demo>
-
-            
+          {/* //directory="" webkitdirectory="" mozdirectory="" */}
+          <input  directory="" webkitdirectory="" mozdirectory="" type="file" onChange={dirHandler} multiple /> 
         </div>
 
         <Rarity/>

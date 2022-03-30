@@ -22,7 +22,7 @@ const Home = () => {
     const classes = useStyles()
     
   return (
-    <Grid container className={classes.container}>
+    <Grid container className={classes.container} spacing={2}>
 
         <Grid item xs={12} sm={2} md={2} lg={2}>
             <LeftBar />
