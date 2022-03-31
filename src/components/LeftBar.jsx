@@ -12,6 +12,7 @@ import Rarity from './Rarity';
 import styled from '@emotion/styled';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Upload from './Upload';
 
 
 
@@ -66,7 +67,7 @@ const LeftBar = () => {
 
     //generate row function comme
     function generate(element) {
-        return [0, 1, 2].map((value) =>
+        return [0, 1, 2,3,4,5,6].map((value) =>
           React.cloneElement(element, {
             key: value,
           }),
@@ -78,7 +79,7 @@ const LeftBar = () => {
       }));
 
     const dirHandler = (e) => {
-        console.log(e.target.files)
+        console.log(e.target.files[0].path)
     }
 
 
@@ -112,32 +113,40 @@ const LeftBar = () => {
             </List>
             
             <Demo>
-            <List >
+                <List sx={{maxHeight : '300px', overflow : 'auto'}}>
 
-              {generate(
-                <ListItem
-                  secondaryAction={
-                    <IconButton edge="end" aria-label="delete">
-                      <DeleteIcon />
-                    </IconButton>
-                  }
-                >
-                  <ListItemAvatar>
-                    <Avatar>
-                      <FolderIcon />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary="Elements Name"
-                    
-                  />
-                </ListItem>,
-              )}
+                {generate(
+                    <ListItem
+                    secondaryAction={
+                        <IconButton edge="end" aria-label="delete">
+                        <DeleteIcon />
+                        </IconButton>
+                    }
+                    >
+                    <ListItemAvatar>
+                        <Avatar>
+                        <FolderIcon />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                        primary="Elements Name"
+                        
+                    />
+                    </ListItem>
+                )}
 
-            </List>
+                
+
+                </List>
           </Demo>
+        
+            <Box sx={{textAlign : 'center', marginTop : "30px"}} elevation={3}>
+                <Upload />
+            </Box>
+            
+
           {/* //directory="" webkitdirectory="" mozdirectory="" */}
-          <input  directory="" webkitdirectory="" mozdirectory="" type="file" onChange={dirHandler} multiple /> 
+          
         </div>
 
         <Rarity/>

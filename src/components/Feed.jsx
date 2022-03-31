@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { makeStyles } from '@mui/styles'
@@ -17,14 +17,15 @@ const useStyles = makeStyles((theme)=>(
             backgroundColor : '#854DF1 !important',
             borderRadius : "50px !important",
             marginTop : '25px',
-        }
+        },
+        
     }
 ))
 
 const Feed = () => {
     
     const classes = useStyles()
-    const [imageArray, setImageArray] = React.useState([]);
+    const [imageArray, setImageArray] = useState([]);
     //create objects inside an arry which contain img and title
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const Feed = () => {
             </Typography>
 
         </Paper>
-        <ImageList  cols={5} sx={{maxHeight : '750px', overflow: 'hidden'}} gap={0}>
+        <ImageList  cols={5} sx={{maxHeight : '750px', }} className={classes.imageList}>
             {imageArray.map((item, index) => (
                 <ImageListItem key={item.img} >
                 <img 
