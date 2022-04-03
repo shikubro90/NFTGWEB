@@ -29,14 +29,14 @@ const Upload = () => {
     <div>
 
         <Box>
-        <Button
-            variant="contained"
-            component="label"
-            sx={{color : "#fff"}}
-            >
-            <DriveFolderUploadIcon sx={{marginRight : '10px'}} />
-            <input  directory="" webkitdirectory="" mozdirectory="" type="file" onChange={dirHandeler} hidden  /> 
-                Add Layer
+            <Button
+                variant="contained"
+                component="label"
+                sx={{color : "#fff"}}
+                >
+                <DriveFolderUploadIcon sx={{marginRight : '10px'}} />
+                <input  directory="" webkitdirectory="" mozdirectory="" type="file" onChange={dirHandeler} hidden  /> 
+                    Add Layer
             </Button>
         </Box>
 
